@@ -61,7 +61,7 @@
 		<dependency>
 			<groupId>me.saro</groupId>
 			<artifactId>commons</artifactId>
-			<version>0.1</version>
+			<version>0.4</version>
 		</dependency>
 		<dependency>
 			<groupId>com.sap.conn.jco</groupId>
