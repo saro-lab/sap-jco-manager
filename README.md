@@ -21,7 +21,7 @@
 compile 'me.saro:commons:3.0.14.1'
 ```
 
-## lib file setting
+## bind sap jco library file
 if not setting the lib file will see that error
 ```
 java.lang.ExceptionInInitializerError: JCo initialization failed with java.lang.ExceptionInInitializerError: Illegal JCo archive "sapjco3-3.0.14.jar". It is not allowed to rename or repackage the original archive "sapjco3.jar".
@@ -36,10 +36,10 @@ java.lang.ExceptionInInitializerError: JCo initialization failed with java.lang.
 	at me.saro.sap.jco.SapManagerBuilder.build(SapManagerBuilder.java:57)
 	at me.saro.sap.jco.SapManagerBuilder.build(SapManagerBuilder.java:34)
 ```
-### how to setting
-http://maven.mit.edu/nexus/content/repositories/public/com/sap/conn/jco/sapjco3/3.0.14/
-download lib file : so (linux), dll (windows), jnilib (mac)
-and include lib file
+### how to bind sap jco library file
+- http://maven.mit.edu/nexus/content/repositories/public/com/sap/conn/jco/sapjco3/3.0.14/
+- download library file : so (linux), dll (windows), jnilib (mac)
+- and include library file
 
 # example
 ``` java
