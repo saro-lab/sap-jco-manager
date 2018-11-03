@@ -29,7 +29,7 @@ public class SapManagerTest {
 
     // example connect
     public SapManager connect() throws JCoException, IOException {
-        return  SapManager
+        return SapManager
                 .builder()
                 .set(SapManagerBuilderOption.ASHOST, "host") // AS host
                 .set(SapManagerBuilderOption.MSSERV, "9999") // MS port [AS, MS is MSSERV, GW is JCO_GWSERV]
