@@ -1,4 +1,4 @@
-package me.saro.commons;
+package me.saro.sap.jco.test;
 
 import java.io.IOException;
 import java.util.Arrays;
