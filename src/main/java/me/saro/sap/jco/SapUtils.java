@@ -1,6 +1,8 @@
 package me.saro.sap.jco;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -62,5 +64,18 @@ public class SapUtils {
         }
         
         return rv;
+    }
+    
+    /**
+     * if [object value] is [java.util.Date] then [to string by format] else [object value]
+     * @param value
+     * @param format
+     * @return
+     */
+    public static Object filterDate(Object value, String format) {
+        if (value != null && "java.util.Date".equals(value.getClass().getName())) {
+            return new SimpleDateFormat(format).format((Date)value);
+        }
+        return value;
     }
 }
