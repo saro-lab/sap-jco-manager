@@ -15,7 +15,6 @@ public class SapFunction {
 
     final JCoDestination destination;
     final JCoFunction function;
-    JCoParameterList imports;
 
     /**
      * @param jCoFunction
@@ -30,11 +29,8 @@ public class SapFunction {
      * insert import parameters
      * @return
      */
-    public JCoParameterList imports() {
-        if (imports == null) {
-            imports = function.getImportParameterList();
-        }
-        return imports;
+    public JCoParameterList getImportParameterList() {
+        return function.getImportParameterList();
     }
 
     /**
@@ -42,7 +38,7 @@ public class SapFunction {
      * @param tableName
      * @return
      */
-    public JCoTable importTable(String tableName) {
+    public JCoTable getImportTableParameter(String tableName) {
         return function.getTableParameterList().getTable(tableName);
     }
 
