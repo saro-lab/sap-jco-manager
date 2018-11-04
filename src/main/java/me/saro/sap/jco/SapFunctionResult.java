@@ -69,7 +69,7 @@ public class SapFunctionResult {
     }
     
     /**
-     * 
+     * get map list table
      * @param index
      * @return
      */
@@ -78,7 +78,7 @@ public class SapFunctionResult {
     }
     
     /**
-     * 
+     * get map list table
      * @param name
      * @return
      */
@@ -87,7 +87,7 @@ public class SapFunctionResult {
     }
     
     /**
-     * 
+     * get custom class table
      * @param index
      * @param createRow
      * @param bindField
@@ -98,7 +98,7 @@ public class SapFunctionResult {
     }
     
     /**
-     * 
+     * get custom class table
      * @param name
      * @param createRow
      * @param bindField
