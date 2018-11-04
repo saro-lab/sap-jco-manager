@@ -1,7 +1,6 @@
 ### saro commons
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/me.saro/sap-jco-manager/badge.svg)](https://maven-badges.herokuapp.com/maven-central/me.saro/commons)
-[![GitHub license](https://img.shields.io/github/license/saro-lab/sap-jco-manager.svg)](https://github.com/saro-lab/commons/blob/master/LICENSE)
-
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/me.saro/sap-jco-manager/badge.svg)](https://maven-badges.herokuapp.com/maven-central/me.saro/sap-jco-manager)
+[![GitHub license](https://img.shields.io/github/license/saro-lab/sap-jco-manager.svg)](https://github.com/saro-lab/sap-jco-manager/blob/master/LICENSE)
 
 # QUICK START
 
@@ -20,6 +19,13 @@
 ```
 compile 'me.saro:commons:3.0.14.1'
 ```
+
+## bind sap jco library file
+if not setting the lib file will see that error
+### how to bind sap jco library file
+- http://maven.mit.edu/nexus/content/repositories/public/com/sap/conn/jco/sapjco3/3.0.14/
+- download library file : so (linux), dll (windows), jnilib (mac)
+- and include library file
 
 # example
 ``` java
