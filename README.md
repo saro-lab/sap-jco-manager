@@ -10,22 +10,24 @@
 <dependency>
   <groupId>me.saro</groupId>
   <artifactId>sap-jco-manager</artifactId>
-  <version>3.0.14.1</version>
+  <version>3.0.14.2</version>
 </dependency>
 ```
 
 ## gradle
 
 ```
-compile 'me.saro:commons:3.0.14.1'
+compile 'me.saro:commons:3.0.14.2'
 ```
 
-## bind sap jco library file
-if not setting the lib file will see that error
+## include sapjco3
 ### how to bind sap jco library file
-- http://maven.mit.edu/nexus/content/repositories/public/com/sap/conn/jco/sapjco3/3.0.14/
-- download library file : so (linux), dll (windows), jnilib (mac)
-- and include library file
+#### http://maven.mit.edu/nexus/content/repositories/public/com/sap/conn/jco/sapjco3/3.0.14/
+#### download file and include
+- sapjco3-3.0.14.jar (required)
+- sapjco3-3.0.14-linuxx86_64.so (linux)
+- sapjco3-3.0.14-darwinintel64.jnilib (mac)
+- sapjco3-3.0.14-ntamd64.dll (windows)
 
 # example
 ``` java
