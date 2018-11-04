@@ -81,12 +81,12 @@ public class SapManagerTest {
         SapFunction function = sap.getFunction("SAP_RFC_FUNC_NAME");
 
         // set parameters
-        function.imports().setValue("param1", "text");
-        function.imports().setValue("param2", 1);
-        function.imports().setValue("param3", true);
+        function.getImportParameterList().setValue("param1", "text");
+        function.getImportParameterList().setValue("param2", 1);
+        function.getImportParameterList().setValue("param3", true);
 
         // set table parameters [example table parameter name is param4]
-        JCoTable requestTableParameter = function.importTable("param4");
+        JCoTable requestTableParameter = function.getImportTableParameter("param4");
         List.of("value1", "value2", "value3").forEach(e -> {
             requestTableParameter.appendRow();
             requestTableParameter.setValue("field1", "text");
@@ -98,9 +98,9 @@ public class SapManagerTest {
         SapFunctionResult result = function.execute();
 
         // get result parameters
-        result.exports().getString("param1");
-        result.exports().getInt("param2");
-        result.exports().getDate("param3");
+        result.getExportParameterList().getString("param1");
+        result.getExportParameterList().getInt("param2");
+        result.getExportParameterList().getDate("param3");
 
         // get result tables
         List<Map<String, Object>> resultTable = result.getTable("SAP_RESULT_TABLE_NAME");
@@ -125,11 +125,11 @@ public class SapManagerTest {
         // executeAllThreads method is blocking until complete all a tasks
         List<String> userNameList = sap.getFunctionTemplate("USER_TABLE").executeAllThreads(10, userNoList, (function, userNo) -> {
 
-            function.imports().setValue("user_no", userNo);
+            function.getImportParameterList().setValue("user_no", userNo);
 
             SapFunctionResult result = function.execute();
 
-            String name = result.exports().getString("USER_NAME");
+            String name = result.getExportParameterList().getString("USER_NAME");
 
             return name;
         });
