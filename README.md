@@ -4,8 +4,8 @@
 
 # QUICK START
 
-## maven
-
+## Dependency injection
+### maven
 ``` xml
 <dependency>
   <groupId>me.saro</groupId>
@@ -13,21 +13,18 @@
   <version>3.0.14.2</version>
 </dependency>
 ```
-
-## gradle
+### gradle
 
 ```
 compile 'me.saro:commons:3.0.14.2'
 ```
 
-## include sapjco3
-### how to bind sap jco library file
-#### http://maven.mit.edu/nexus/content/repositories/public/com/sap/conn/jco/sapjco3/3.0.14/
-#### download file and include
+## Download and include sapjco3
+### [http://maven.mit.edu/nexus/content/repositories/public/com/sap/conn/jco/sapjco3/3.0.14/]()
 - sapjco3-3.0.14.jar (required)
-- sapjco3-3.0.14-linuxx86_64.so (linux)
-- sapjco3-3.0.14-darwinintel64.jnilib (mac)
-- sapjco3-3.0.14-ntamd64.dll (windows)
+- sapjco3-3.0.14-linuxx86_64.so (required linux)
+- sapjco3-3.0.14-darwinintel64.jnilib (required mac)
+- sapjco3-3.0.14-ntamd64.dll (required windows)
 
 # example
 ``` java
