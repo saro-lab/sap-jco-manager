@@ -12,6 +12,7 @@
 /target/
 pom.xml.releaseBackup
 release.properties
+SAP.jcoDestination
 
 ### STS ###
 .apt_generated
