@@ -1,31 +1,43 @@
-### saro commons
+### sap-jco-manager
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/me.saro/sap-jco-manager/badge.svg)](https://maven-badges.herokuapp.com/maven-central/me.saro/sap-jco-manager)
 [![GitHub license](https://img.shields.io/github/license/saro-lab/sap-jco-manager.svg)](https://github.com/saro-lab/sap-jco-manager/blob/master/LICENSE)
 
 # QUICK START
 
-## maven
-
+## Dependency injection
+### maven
 ``` xml
 <dependency>
   <groupId>me.saro</groupId>
   <artifactId>sap-jco-manager</artifactId>
-  <version>3.0.14.1</version>
+  <version>3.0.14.2</version>
 </dependency>
 ```
-
-## gradle
+### gradle
 
 ```
-compile 'me.saro:commons:3.0.14.1'
+compile 'me.saro:commons:3.0.14.2'
 ```
 
-## bind sap jco library file
-if not setting the lib file will see that error
-### how to bind sap jco library file
-- http://maven.mit.edu/nexus/content/repositories/public/com/sap/conn/jco/sapjco3/3.0.14/
-- download library file : so (linux), dll (windows), jnilib (mac)
-- and include library file
+## Download and include sapjco3
+### If you have received a sapjco3 file from a vendor, use it instead of downloading it
+### [http://maven.mit.edu/nexus/content/repositories/public/com/sap/conn/jco/sapjco3/3.0.14/](http://maven.mit.edu/nexus/content/repositories/public/com/sap/conn/jco/sapjco3/3.0.14/)
+- **must rename before include :**
+  - sapjco3-3.0.14.jar -> **sapjco3.jar** (required)
+  - sapjco3-3.0.14-linuxx86_64.so -> **sapjco3.so** (required linux)
+  - sapjco3-3.0.14-darwinintel64.jnilib -> **sapjco3.jnilib** (required mac)
+  - sapjco3-3.0.14-ntamd64.dll -> **sapjco3.dll** (required windows)
+- if you do not change the filename, you will see the following error message:
+  - if not include sapjco3.jar
+    ```
+    JCo initialization failed with java.lang.ExceptionInInitializerError: 
+      Illegal JCo archive "sapjco3-3.0.14.jar".
+      It is not allowed to rename or repackage the original archive "sapjco3.jar".
+    ```
+  - if not include sapjco3.so (linux), sapjco3.jnilib (mac), sapjco3.dll (windows)
+    ```
+      java.lang.UnsatisfiedLinkError: no sapjco3 in java.library.path:
+    ```
 
 # example
 ``` java
@@ -47,7 +59,7 @@ public class SapManagerTest {
 
     // example connect
     public SapManager connect() throws JCoException, IOException {
-        return  SapManager
+        return SapManager
                 .builder()
                 .set(SapManagerBuilderOption.ASHOST, "host") // AS host
                 .set(SapManagerBuilderOption.MSSERV, "9999") // MS port [AS, MS is MSSERV, GW is JCO_GWSERV]
