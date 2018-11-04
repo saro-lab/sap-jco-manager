@@ -21,7 +21,6 @@ import me.saro.commons.function.ThrowableBiConsumer;
 public class SapFunctionResult {
 
     final JCoFunction function;
-    JCoParameterList exports;
 
     /**
      * @param jCoFunction
@@ -35,11 +34,8 @@ public class SapFunctionResult {
      * get export parameters
      * @return
      */
-    public JCoParameterList exports() {
-        if (exports == null) {
-            exports = function.getExportParameterList();
-        }
-        return exports;
+    public JCoParameterList getExportParameterList() {
+        return function.getExportParameterList();
     }
     
     /**
