@@ -28,7 +28,7 @@ public class SapManagerTest {
     }
 
     // example connect
-    public SapManager connect() throws JCoException, IOException {
+    public SapManager getSapManager() throws JCoException, IOException {
         return SapManager
                 .builder()
                 .set(SapManagerBuilderOption.ASHOST, "host") // AS host
@@ -45,7 +45,7 @@ public class SapManagerTest {
     // example normal
     public void normal() throws JCoException, IOException {
         // connect
-        SapManager sap = connect();
+        SapManager sap = getSapManager();
 
         // load sap function
         SapFunction function = sap.getFunction("SAP_RFC_FUNC_NAME");
@@ -89,7 +89,7 @@ public class SapManagerTest {
         List<Integer> userNoList = List.of(1, 2, 3, 4);
 
         // connect
-        SapManager sap = connect();
+        SapManager sap = getSapManager();
 
         // use 10 thread
         // executeAllThreads method is blocking until complete all a tasks
@@ -112,7 +112,7 @@ public class SapManagerTest {
     // example recv table to custom class
     public void recvTableToCustomClass() throws JCoException, IOException {
         // connect
-        SapManager sap = connect();
+        SapManager sap = getSapManager();
         
         SapFunction function = sap.getFunction("CALL_ALL_USER_LIST");
         SapFunctionResult result = function.execute();
