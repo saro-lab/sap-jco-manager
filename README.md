@@ -22,14 +22,23 @@ compile 'me.saro:commons:3.0.14.2'
 ## Download and include sapjco3
 ### If you have received a sapjco3 file from a vendor, use it instead of downloading it
 ### [http://maven.mit.edu/nexus/content/repositories/public/com/sap/conn/jco/sapjco3/3.0.14/](http://maven.mit.edu/nexus/content/repositories/public/com/sap/conn/jco/sapjco3/3.0.14/)
+- **must rename before include :**
+  - sapjco3-3.0.14.jar -> sapjco3.jar
+  - sapjco3-3.0.14-linuxx86_64.so -> sapjco3.so
+  - sapjco3-3.0.14-darwinintel64.jnilib -> sapjco3.jnilib
+  - sapjco3-3.0.14-ntamd64.dll -> sapjco3.dll
+- if you do not change the filename, you will see the following error message:
+if not include sapjco3.jar
+```
+JCo initialization failed with java.lang.ExceptionInInitializerError: 
+  Illegal JCo archive "sapjco3-3.0.14.jar".
+  It is not allowed to rename or repackage the original archive "sapjco3.jar".
+```
+if not include sapjco3.so, sapjco3.jnilib, sapjco3.dll
+```
+  java.lang.UnsatisfiedLinkError: no sapjco3 in java.library.path:
+```
 - sapjco3-3.0.14.jar (required)
-  - **must rename before include :** sapjco3-3.0.14.jar -> sapjco3.jar
-  - if you do not change the filename, you will see the following error message:
-  ```
-  JCo initialization failed with java.lang.ExceptionInInitializerError: 
-    Illegal JCo archive "sapjco3-3.0.14.jar".
-    It is not allowed to rename or repackage the original archive "sapjco3.jar".
-  ```
 - sapjco3-3.0.14-linuxx86_64.so (required linux)
 - sapjco3-3.0.14-darwinintel64.jnilib (required mac)
 - sapjco3-3.0.14-ntamd64.dll (required windows)
