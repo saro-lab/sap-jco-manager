@@ -1,4 +1,4 @@
-### saro commons
+### sap-jco-manager
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/me.saro/sap-jco-manager/badge.svg)](https://maven-badges.herokuapp.com/maven-central/me.saro/sap-jco-manager)
 [![GitHub license](https://img.shields.io/github/license/saro-lab/sap-jco-manager.svg)](https://github.com/saro-lab/sap-jco-manager/blob/master/LICENSE)
 
