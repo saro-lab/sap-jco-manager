@@ -24,7 +24,7 @@ compile 'me.saro:commons:3.0.14.2'
 ### [http://maven.mit.edu/nexus/content/repositories/public/com/sap/conn/jco/sapjco3/3.0.14/](http://maven.mit.edu/nexus/content/repositories/public/com/sap/conn/jco/sapjco3/3.0.14/)
 - sapjco3-3.0.14.jar (required)
   - **must rename before include :** sapjco3-3.0.14.jar -> sapjco3.jar
-  - if you not rename, will see that error
+  - if you do not change the filename, you will see the following error message:
   ```
   JCo initialization failed with java.lang.ExceptionInInitializerError: 
     Illegal JCo archive "sapjco3-3.0.14.jar".
