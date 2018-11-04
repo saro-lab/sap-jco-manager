@@ -23,10 +23,10 @@ compile 'me.saro:commons:3.0.14.2'
 ### If you have received a sapjco3 file from a vendor, use it instead of downloading it
 ### [http://maven.mit.edu/nexus/content/repositories/public/com/sap/conn/jco/sapjco3/3.0.14/](http://maven.mit.edu/nexus/content/repositories/public/com/sap/conn/jco/sapjco3/3.0.14/)
 - **must rename before include :**
-  - sapjco3-3.0.14.jar -> sapjco3.jar (required)
-  - sapjco3-3.0.14-linuxx86_64.so -> sapjco3.so (required linux)
-  - sapjco3-3.0.14-darwinintel64.jnilib -> sapjco3.jnilib (required mac)
-  - sapjco3-3.0.14-ntamd64.dll -> sapjco3.dll (required windows)
+  - sapjco3-3.0.14.jar -> **sapjco3.jar** (required)
+  - sapjco3-3.0.14-linuxx86_64.so -> **sapjco3.so** (required linux)
+  - sapjco3-3.0.14-darwinintel64.jnilib -> **sapjco3.jnilib** (required mac)
+  - sapjco3-3.0.14-ntamd64.dll -> **sapjco3.dll** (required windows)
 - if you do not change the filename, you will see the following error message:
   - if not include sapjco3.jar
     ```
