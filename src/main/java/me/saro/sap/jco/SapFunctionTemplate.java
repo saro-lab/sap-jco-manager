@@ -2,7 +2,6 @@ package me.saro.sap.jco;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import com.sap.conn.jco.JCoDestination;
 import com.sap.conn.jco.JCoFunction;
