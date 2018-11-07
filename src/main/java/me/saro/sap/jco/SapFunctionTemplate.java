@@ -50,11 +50,12 @@ public class SapFunctionTemplate {
      * @return
      */
     public <T, R> List<R> executeAllThreads(int nThreads, List<T> list, ThrowableBiFunction<SapFunction, T, R> forEach) {
-        return executeAllThreads(Executors.newFixedThreadPool(nThreads), list, forEach);
+        return Utils.executeAllThreads(nThreads, list, e -> forEach.apply(getFunction(), e));
     }
 
     /**
      * execute all functions with threads
+     * <b>WARNING : </b>this method does not shutdown to ExecutorService instance
      * @param executorService
      * @param list
      * @param forEach
