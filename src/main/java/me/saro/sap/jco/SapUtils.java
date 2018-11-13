@@ -12,8 +12,8 @@ import com.sap.conn.jco.JCoField;
 import com.sap.conn.jco.JCoTable;
 
 import me.saro.commons.Converter;
-import me.saro.commons.Lambdas;
 import me.saro.commons.function.ThrowableBiConsumer;
+import me.saro.commons.function.ThrowableConsumer;
 
 /**
  * Sap Util
@@ -59,7 +59,7 @@ public class SapUtils {
         
         while (table.nextRow()) {
             R r = createRow.get();
-            Converter.toStream(table).forEach(Lambdas.<JCoField>runtime(field -> bindField.accept(r, field)));
+            Converter.toStream(table).forEach(ThrowableConsumer.<JCoField>runtime(field -> bindField.accept(r, field)));
             rv.add(r);
         }
         
