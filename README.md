@@ -16,7 +16,7 @@
 ### gradle
 
 ```
-compile 'me.saro:commons:3.0.14.4'
+compile 'me.saro:sap-jco-manager:3.0.14.4'
 ```
 
 ## Download and include sapjco3
