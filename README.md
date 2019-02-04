@@ -40,10 +40,9 @@ compile 'me.saro:sap-jco-manager:3.0.14.4'
     ```
 
 # example
+## basic
 ``` java
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -55,10 +54,10 @@ import me.saro.sap.jco.SapFunctionResult;
 import me.saro.sap.jco.SapManager;
 import me.saro.sap.jco.SapManagerBuilderOption;
 
-public class SapManagerTest {
+public class SapManagerNormalTest {
 
     // example connect
-    public SapManager connect() throws JCoException, IOException {
+    public SapManager getSapManager() throws JCoException, IOException {
         return SapManager
                 .builder()
                 .set(SapManagerBuilderOption.ASHOST, "host") // AS host
@@ -72,10 +71,10 @@ public class SapManagerTest {
                 .build();
     }
 
-    // example normal
+    // example basic
     public void normal() throws JCoException, IOException {
         // connect
-        SapManager sap = connect();
+        SapManager sap = getSapManager();
 
         // load sap function
         SapFunction function = sap.getFunction("SAP_RFC_FUNC_NAME");
@@ -112,6 +111,37 @@ public class SapManagerTest {
             row.forEach( (key, value) -> System.out.println(key + " : " + value) );
         });
     }
+}
+
+```
+
+## multiple thread
+``` java
+import java.io.IOException;
+import java.util.List;
+
+import com.sap.conn.jco.JCoException;
+
+import me.saro.sap.jco.SapFunctionResult;
+import me.saro.sap.jco.SapManager;
+import me.saro.sap.jco.SapManagerBuilderOption;
+
+public class SapManagerMultipleThreadTest {
+
+    // example connect
+    public SapManager getSapManager() throws JCoException, IOException {
+        return SapManager
+                .builder()
+                .set(SapManagerBuilderOption.ASHOST, "host") // AS host
+                .set(SapManagerBuilderOption.MSSERV, "9999") // MS port [AS, MS is MSSERV, GW is JCO_GWSERV]
+                .set(SapManagerBuilderOption.SYSNR, "01") // system number
+                .set(SapManagerBuilderOption.GROUP, "Group Name") // group
+                .set(SapManagerBuilderOption.LANG, "KO") // language code
+                .set(SapManagerBuilderOption.CLIENT, "100") // client number
+                .set(SapManagerBuilderOption.USER, "user") // user
+                .set(SapManagerBuilderOption.PASSWD, "password") // password
+                .build();
+    }
 
     // example multiple thread
     public void multipleThread() throws JCoException, IOException {
@@ -119,7 +149,7 @@ public class SapManagerTest {
         List<Integer> userNoList = List.of(1, 2, 3, 4);
 
         // connect
-        SapManager sap = connect();
+        SapManager sap = getSapManager();
 
         // use 10 thread
         // executeAllThreads method is blocking until complete all a tasks
@@ -138,11 +168,45 @@ public class SapManagerTest {
         System.out.println("user names");
         System.out.println(userNameList);
     }
+}
+
+```
+
+## custom class
+``` java
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
+import com.sap.conn.jco.JCoException;
+
+import me.saro.sap.jco.SapFunction;
+import me.saro.sap.jco.SapFunctionResult;
+import me.saro.sap.jco.SapManager;
+import me.saro.sap.jco.SapManagerBuilderOption;
+
+public class SapManagerCustomClassTest {
+
+    // example connect
+    public SapManager getSapManager() throws JCoException, IOException {
+        return SapManager
+                .builder()
+                .set(SapManagerBuilderOption.ASHOST, "host") // AS host
+                .set(SapManagerBuilderOption.MSSERV, "9999") // MS port [AS, MS is MSSERV, GW is JCO_GWSERV]
+                .set(SapManagerBuilderOption.SYSNR, "01") // system number
+                .set(SapManagerBuilderOption.GROUP, "Group Name") // group
+                .set(SapManagerBuilderOption.LANG, "KO") // language code
+                .set(SapManagerBuilderOption.CLIENT, "100") // client number
+                .set(SapManagerBuilderOption.USER, "user") // user
+                .set(SapManagerBuilderOption.PASSWD, "password") // password
+                .build();
+    }
 
     // example recv table to custom class
     public void recvTableToCustomClass() throws JCoException, IOException {
         // connect
-        SapManager sap = connect();
+        SapManager sap = getSapManager();
         
         SapFunction function = sap.getFunction("CALL_ALL_USER_LIST");
         SapFunctionResult result = function.execute();
@@ -204,4 +268,5 @@ public class SapManagerTest {
         }
     }
 }
+
 ```

@@ -1,31 +1,22 @@
 package me.saro.sap.jco.test;
+/**
+ * Impossible create connect test set
+ * because there is no server
+ */
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
-
-import org.junit.jupiter.api.Test;
 
 import com.sap.conn.jco.JCoException;
-import com.sap.conn.jco.JCoTable;
 
 import me.saro.sap.jco.SapFunction;
 import me.saro.sap.jco.SapFunctionResult;
 import me.saro.sap.jco.SapManager;
 import me.saro.sap.jco.SapManagerBuilderOption;
 
-/**
- * Impossible create connect test set
- * because there is no server
- */
-public class SapManagerTest {
-
-    @Test
-    public void test() throws Exception {
-
-    }
+public class SapManagerCustomClassTest {
 
     // example connect
     public SapManager getSapManager() throws JCoException, IOException {
@@ -40,73 +31,6 @@ public class SapManagerTest {
                 .set(SapManagerBuilderOption.USER, "user") // user
                 .set(SapManagerBuilderOption.PASSWD, "password") // password
                 .build();
-    }
-
-    // example normal
-    public void normal() throws JCoException, IOException {
-        // connect
-        SapManager sap = getSapManager();
-
-        // load sap function
-        SapFunction function = sap.getFunction("SAP_RFC_FUNC_NAME");
-
-        // set parameters
-        function.getImportParameterList().setValue("param1", "text");
-        function.getImportParameterList().setValue("param2", 1);
-        function.getImportParameterList().setValue("param3", true);
-
-        // set table parameters [example table parameter name is param4]
-        JCoTable requestTableParameter = function.getImportTableParameter("param4");
-        List.of("value1", "value2", "value3").forEach(e -> {
-            requestTableParameter.appendRow();
-            requestTableParameter.setValue("field1", "text");
-            requestTableParameter.setValue("field2", e);
-            requestTableParameter.setValue("field3", false);
-        });
-
-        // execute
-        SapFunctionResult result = function.execute();
-
-        // get result parameters
-        result.getExportParameterList().getString("param1");
-        result.getExportParameterList().getInt("param2");
-        result.getExportParameterList().getDate("param3");
-
-        // get result tables
-        List<Map<String, Object>> resultTable = result.getTable("SAP_RESULT_TABLE_NAME");
-
-        // print result table
-        System.out.println("print SAP_RESULT_TABLE_NAME");
-        resultTable.forEach(row -> {
-            System.out.println("=============================================");
-            row.forEach( (key, value) -> System.out.println(key + " : " + value) );
-        });
-    }
-
-    // example multiple thread
-    public void multipleThread() throws JCoException, IOException {
-        // example user no -> name
-        List<Integer> userNoList = List.of(1, 2, 3, 4);
-
-        // connect
-        SapManager sap = getSapManager();
-
-        // use 10 thread
-        // executeAllThreads method is blocking until complete all a tasks
-        List<String> userNameList = sap.getFunctionTemplate("USER_TABLE").executeAllThreads(10, userNoList, (function, userNo) -> {
-
-            function.getImportParameterList().setValue("user_no", userNo);
-
-            SapFunctionResult result = function.execute();
-
-            String name = result.getExportParameterList().getString("USER_NAME");
-
-            return name;
-        });
-
-        // print
-        System.out.println("user names");
-        System.out.println(userNameList);
     }
 
     // example recv table to custom class
