@@ -10,13 +10,13 @@
 <dependency>
   <groupId>me.saro</groupId>
   <artifactId>sap-jco-manager</artifactId>
-  <version>3.0.14.4</version>
+  <version>3.0.14.5</version>
 </dependency>
 ```
 ### gradle
 
 ```
-compile 'me.saro:sap-jco-manager:3.0.14.4'
+compile 'me.saro:sap-jco-manager:3.0.14.5'
 ```
 
 ## Download and include sapjco3
