@@ -30,15 +30,18 @@ public class SapUtils {
      * JCoTable to List[Map[String, Object]]
      * @param table
      * jCo table
-     * @return
+     * @return JCoTable to List<Map<String, Object>>
      */
     public static List<Map<String, Object>> toMapList(JCoTable table) {
         List<Map<String, Object>> rv = new ArrayList<>();
-        
-        while (table.nextRow()) {
-            Map<String, Object> map = new LinkedHashMap<>();
-            Converter.toStream(table).forEach(field -> map.put(field.getName(), field.getValue()));
-            rv.add(map);
+
+        if (!table.isEmpty()) {
+            table.firstRow();
+            do {
+                Map<String, Object> map = new LinkedHashMap<>();
+                Converter.toStream(table).forEach(field -> map.put(field.getName(), field.getValue()));
+                rv.add(map);
+            } while (table.nextRow());
         }
         
         return rv;
@@ -52,25 +55,30 @@ public class SapUtils {
      * create custom class row
      * @param bindField
      * bind field in custom class row
-     * @return
+     * @return JCoTable to Custom Class
      */
     public static <R> List<R> toClass(JCoTable table, Supplier<R> createRow, ThrowableBiConsumer<R, JCoField> bindField) {
         List<R> rv = new ArrayList<>();
-        
-        while (table.nextRow()) {
-            R r = createRow.get();
-            Converter.toStream(table).forEach(ThrowableConsumer.<JCoField>runtime(field -> bindField.accept(r, field)));
-            rv.add(r);
+
+        if (!table.isEmpty()) {
+            table.firstRow();
+            do {
+                R r = createRow.get();
+                Converter.toStream(table).forEach(ThrowableConsumer.runtime(field -> bindField.accept(r, field)));
+                rv.add(r);
+            } while (table.nextRow());
         }
         
         return rv;
     }
     
     /**
-     * if [object value] is [java.util.Date] then [to string by format] else [object value]
-     * @param value
-     * @param format
-     * @return
+     * date filter
+     * "value" is "java.util.Date" then return "format String" <br>
+     * "value" is not "java.util.Date" then return "value"
+     * @param value data
+     * @param format Date format you want
+     * @return result
      */
     public static Object filterDate(Object value, String format) {
         if (value != null && "java.util.Date".equals(value.getClass().getName())) {
