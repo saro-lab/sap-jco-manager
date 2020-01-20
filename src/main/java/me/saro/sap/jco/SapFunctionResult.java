@@ -10,8 +10,7 @@ import com.sap.conn.jco.JCoField;
 import com.sap.conn.jco.JCoFunction;
 import com.sap.conn.jco.JCoParameterList;
 import com.sap.conn.jco.JCoTable;
-
-import me.saro.commons.function.ThrowableBiConsumer;
+import me.saro.kit.functions.ThrowableBiConsumer;
 
 /**
  * Sap Function Result
@@ -23,8 +22,8 @@ public class SapFunctionResult {
     final JCoFunction function;
 
     /**
-     * @param jCoFunction
-     * @see SapFunctionFunction
+     * @param function
+     * @see SapFunction
      */
     SapFunctionResult(JCoFunction function) {
         this.function = function;

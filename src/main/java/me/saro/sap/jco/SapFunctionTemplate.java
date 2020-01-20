@@ -6,9 +6,8 @@ import java.util.concurrent.ExecutorService;
 import com.sap.conn.jco.JCoDestination;
 import com.sap.conn.jco.JCoFunction;
 import com.sap.conn.jco.JCoFunctionTemplate;
-
-import me.saro.commons.Utils;
-import me.saro.commons.function.ThrowableBiFunction;
+import me.saro.kit.Threads;
+import me.saro.kit.functions.ThrowableBiFunction;
 
 /**
  * Sap Function Template
@@ -49,7 +48,7 @@ public class SapFunctionTemplate {
      * @return
      */
     public <T, R> List<R> executeAllThreads(int nThreads, List<T> list, ThrowableBiFunction<SapFunction, T, R> forEach) {
-        return Utils.executeAllThreads(nThreads, list, e -> forEach.apply(getFunction(), e));
+        return Threads.executeAllThreads(nThreads, list, e -> forEach.apply(getFunction(), e));
     }
 
     /**
@@ -61,6 +60,6 @@ public class SapFunctionTemplate {
      * @return
      */
     public <T, R> List<R> executeAllThreads(ExecutorService executorService, List<T> list, ThrowableBiFunction<SapFunction, T, R> forEach) {
-        return Utils.executeAllThreads(executorService, list, e -> forEach.apply(getFunction(), e));
+        return Threads.executeAllThreads(executorService, list, e -> forEach.apply(getFunction(), e));
     }
 }

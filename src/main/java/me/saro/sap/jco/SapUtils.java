@@ -10,10 +10,9 @@ import java.util.function.Supplier;
 
 import com.sap.conn.jco.JCoField;
 import com.sap.conn.jco.JCoTable;
-
-import me.saro.commons.Converter;
-import me.saro.commons.function.ThrowableBiConsumer;
-import me.saro.commons.function.ThrowableConsumer;
+import me.saro.kit.Streams;
+import me.saro.kit.functions.ThrowableBiConsumer;
+import me.saro.kit.functions.ThrowableConsumer;
 
 /**
  * Sap Util
@@ -39,7 +38,7 @@ public class SapUtils {
             table.firstRow();
             do {
                 Map<String, Object> map = new LinkedHashMap<>();
-                Converter.toStream(table).forEach(field -> map.put(field.getName(), field.getValue()));
+                Streams.toStream(table, false).forEach(field -> map.put(field.getName(), field.getValue()));
                 rv.add(map);
             } while (table.nextRow());
         }
@@ -64,7 +63,7 @@ public class SapUtils {
             table.firstRow();
             do {
                 R r = createRow.get();
-                Converter.toStream(table).forEach(ThrowableConsumer.runtime(field -> bindField.accept(r, field)));
+                Streams.toStream(table, false).forEach(ThrowableConsumer.wrap(field -> bindField.accept(r, field)));
                 rv.add(r);
             } while (table.nextRow());
         }
