@@ -1,10 +1,6 @@
 package me.saro.sap.jco;
 
-import com.sap.conn.jco.JCoDestination;
-import com.sap.conn.jco.JCoException;
-import com.sap.conn.jco.JCoFunction;
-import com.sap.conn.jco.JCoParameterList;
-import com.sap.conn.jco.JCoTable;
+import com.sap.conn.jco.*;
 
 /**
  * Sap Function

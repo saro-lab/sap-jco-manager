@@ -4,17 +4,16 @@ package me.saro.sap.jco.test;
  * because there is no server
  */
 
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-
 import com.sap.conn.jco.JCoException;
-
 import me.saro.sap.jco.SapFunction;
 import me.saro.sap.jco.SapFunctionResult;
 import me.saro.sap.jco.SapManager;
 import me.saro.sap.jco.SapManagerBuilderOption;
+
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 public class SapManagerCustomClassTest {
 

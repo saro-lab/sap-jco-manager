@@ -1,8 +1,7 @@
 package me.saro.sap.jco.test;
 
-import org.junit.jupiter.api.Test;
-
 import me.saro.sap.jco.SapField;
+import org.junit.jupiter.api.Test;
 
 public class SapUtilsTest {
     

@@ -1,16 +1,16 @@
 package me.saro.sap.jco;
 
-import java.util.List;
-import java.util.Map;
-import java.util.function.Supplier;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-
 import com.sap.conn.jco.JCoField;
 import com.sap.conn.jco.JCoFunction;
 import com.sap.conn.jco.JCoParameterList;
 import com.sap.conn.jco.JCoTable;
 import me.saro.kit.functions.ThrowableBiConsumer;
+
+import java.util.List;
+import java.util.Map;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * Sap Function Result

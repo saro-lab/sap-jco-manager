@@ -1,12 +1,12 @@
 package me.saro.sap.jco;
 
+import com.sap.conn.jco.JCoDestinationManager;
+import com.sap.conn.jco.JCoException;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
-
-import com.sap.conn.jco.JCoDestinationManager;
-import com.sap.conn.jco.JCoException;
 
 /**
  * Sap Manager Builder 
