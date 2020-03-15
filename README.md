@@ -20,7 +20,10 @@ compile 'me.saro:sap-jco-manager:3.0.14.6'
 ```
 
 ## Download and include sapjco3
-### If you have received a sapjco3 file from a vendor, use it instead of downloading it
+### Official download link (required SAP account)
+- download 3.0.x version
+- [https://support.sap.com/en/product/connectors/jco.html](https://support.sap.com/en/product/connectors/jco.html)
+### If you have received a sapjco3 file from a vendor or official account, use it instead of downloading it
 ### [http://maven.mit.edu/nexus/content/repositories/public/com/sap/conn/jco/sapjco3/3.0.14/](http://maven.mit.edu/nexus/content/repositories/public/com/sap/conn/jco/sapjco3/3.0.14/)
 - **must rename before include:**
   - sapjco3-3.0.14.jar -> **sapjco3.jar** (required)
@@ -73,7 +76,7 @@ public class SapManagerNormalTest {
     }
 
     // example basic
-    public void normal() throws JCoException, IOException {
+    public void basic() throws JCoException, IOException {
         // connect
         SapManager sap = getSapManager();
 
