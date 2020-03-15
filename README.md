@@ -24,7 +24,7 @@ compile 'me.saro:sap-jco-manager:3.0.14.6'
 ### [http://maven.mit.edu/nexus/content/repositories/public/com/sap/conn/jco/sapjco3/3.0.14/](http://maven.mit.edu/nexus/content/repositories/public/com/sap/conn/jco/sapjco3/3.0.14/)
 - **must rename before include:**
   - sapjco3-3.0.14.jar -> **sapjco3.jar** (required)
-  - sapjco3-3.0.14-linuxx86_64.so -> **sapjco3.so** (required linux)
+  - sapjco3-3.0.14-linuxx86_64.so -> **libsapjco3.so** (required linux)
   - sapjco3-3.0.14-darwinintel64.jnilib -> **libsapjco3.jnilib** (required mac)
     - lib path: ~/Library/Java/Extensions/
   - sapjco3-3.0.14-ntamd64.dll -> **sapjco3.dll** (required windows)
@@ -35,7 +35,7 @@ compile 'me.saro:sap-jco-manager:3.0.14.6'
       Illegal JCo archive "sapjco3-3.0.14.jar".
       It is not allowed to rename or repackage the original archive "sapjco3.jar".
     ```
-  - if not include sapjco3.so (linux), sapjco3.jnilib (mac), sapjco3.dll (windows)
+  - if not include libsapjco3.so (linux), libsapjco3.jnilib (mac), sapjco3.dll (windows)
     ```
       java.lang.UnsatisfiedLinkError: no sapjco3 in java.library.path:
     ```
