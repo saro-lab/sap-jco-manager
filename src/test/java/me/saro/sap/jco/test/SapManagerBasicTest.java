@@ -34,7 +34,7 @@ public class SapManagerBasicTest {
     }
 
     // example basic
-    public void normal() throws JCoException, IOException {
+    public void basic() throws JCoException, IOException {
         // connect
         SapManager sap = getSapManager();
 
