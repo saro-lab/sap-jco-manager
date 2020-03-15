@@ -4,14 +4,14 @@ package me.saro.sap.jco.test;
  * because there is no server
  */
 
-import java.io.IOException;
-import java.util.List;
-
 import com.sap.conn.jco.JCoException;
-
 import me.saro.sap.jco.SapFunctionResult;
 import me.saro.sap.jco.SapManager;
 import me.saro.sap.jco.SapManagerBuilderOption;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 public class SapManagerMultipleThreadTest {
 
@@ -33,7 +33,7 @@ public class SapManagerMultipleThreadTest {
     // example multiple thread
     public void multipleThread() throws JCoException, IOException {
         // example user no -> name
-        List<Integer> userNoList = List.of(1, 2, 3, 4);
+        List<Integer> userNoList = Arrays.asList(1, 2, 3, 4);
 
         // connect
         SapManager sap = getSapManager();

@@ -4,17 +4,17 @@ package me.saro.sap.jco.test;
  * because there is no server
  */
 
-import java.io.IOException;
-import java.util.List;
-import java.util.Map;
-
 import com.sap.conn.jco.JCoException;
 import com.sap.conn.jco.JCoTable;
-
 import me.saro.sap.jco.SapFunction;
 import me.saro.sap.jco.SapFunctionResult;
 import me.saro.sap.jco.SapManager;
 import me.saro.sap.jco.SapManagerBuilderOption;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 public class SapManagerBasicTest {
 
@@ -48,7 +48,7 @@ public class SapManagerBasicTest {
 
         // set table parameters [example table parameter name is param4]
         JCoTable requestTableParameter = function.getImportTableParameter("param4");
-        List.of("value1", "value2", "value3").forEach(e -> {
+        Arrays.asList("value1", "value2", "value3").forEach(e -> {
             requestTableParameter.appendRow();
             requestTableParameter.setValue("field1", "text");
             requestTableParameter.setValue("field2", e);
