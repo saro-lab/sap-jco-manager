@@ -274,3 +274,7 @@ public class SapManagerCustomClassTest {
 }
 
 ```
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=saro-lab/sap-jco-manager&type=Date)](https://star-history.com/#saro-lab/sap-jco-manager&Date)
